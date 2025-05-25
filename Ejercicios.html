@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Práctica y Competencia de Proyección Vectorial</title>
+    <style>
+      /* Estilos generales */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f8fa;
+        color: #333;
+      }
+
+      /* Contenedor principal */
+      .main-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Cabecera */
+      header {
+        background-color: #2c3e50;
+        color: #ffffff;
+        padding: 25px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2.2em;
+        color: #ffffff;
+      }
+
+      header p {
+        margin: 10px 0 0;
+        font-size: 1.1em;
+        color: #ecf0f1;
+      }
+
+      /* Sección de ejercicios */
+      .exercise-section {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e0e6ed;
+      }
+
+      .exercise {
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eaeff5;
+      }
+
+      .exercise:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .exercise h2 {
+        color: #2c3e50;
+        font-size: 1.4em;
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
+
+      .option {
+        display: block;
+        width: 100%;
+        padding: 12px 15px;
+        margin: 8px 0;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        text-align: left;
+        transition: all 0.25s ease;
+      }
+
+      .option:hover {
+        background-color: #2980b9;
+        transform: translateX(5px);
+      }
+
+      .correct {
+        background-color: #27ae60;
+      }
+
+      .incorrect {
+        background-color: #e74c3c;
+      }
+
+      .feedback {
+        margin-top: 15px;
+        padding: 12px 15px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 16px;
+        display: none;
+      }
+
+      .correct-feedback {
+        background-color: #d5f5e3;
+        color: #196f3d;
+        border-left: 4px solid #27ae60;
+      }
+
+      .incorrect-feedback {
+        background-color: #fadbd8;
+        color: #922b21;
+        border-left: 4px solid #e74c3c;
+      }
+
+      /* Sección de mascota */
+      .mascota-container {
+        text-align: center;
+        margin: 30px 0;
+      }
+
+      .mascota-img {
+        max-width: 220px;
+        height: auto;
+        transition: all 0.3s ease;
+      }
+
+      .mascota-img:hover {
+        transform: scale(1.05);
+      }
+
+      /* Pie de página */
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        color: #7f8c8d;
+        font-size: 0.95em;
+      }
+
+      .footer-btn {
+        background-color: #3498db;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        margin: 10px 5px;
+      }
+
+      .footer-btn:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(41, 128, 185, 0.3);
+      }
+
+      /* Sección de competencia */
+      .competition-section {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 30px;
+        margin-top: 40px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        border: 1px solid #e0e6ed;
+      }
+
+      .competition-section h2 {
+        color: #2c3e50;
+        font-size: 1.8em;
+        margin-top: 0;
+      }
+
+      .competition-message {
+        font-size: 1.1em;
+        line-height: 1.7;
+        margin-bottom: 25px;
+        color: #34495e;
+      }
+
+      .cta-button {
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        padding: 15px 35px;
+        font-size: 1.1em;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+        margin: 20px 0;
+        font-weight: 600;
+      }
+
+      .cta-button:hover {
+        background-color: #c0392b;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
+      }
+
+      .badges-container {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .badge {
+        width: 90px;
+        opacity: 0.9;
+        transition: all 0.3s ease;
+      }
+
+      .badge:hover {
+        opacity: 1;
+        transform: scale(1.1) rotate(5deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <header>
+        <h1>🦊 ¡Hora de practicar! Godot te acompañará en los ejercicios</h1>
+        <p>Una pequeña preparación para una gran competencia</p>
+      </header>
+
+      <div class="exercise-section">
+        <!-- Pregunta 1 - Fácil -->
+        <div class="exercise">
+          <h2>
+            📌 Pregunta 1: ¿Cuál es la proyección del vector A = (3,4) sobre B =
+            (5,0)?
+          </h2>
+
+          <button
+            class="option"
+            onclick="checkAnswer(this, '(3,0)', 'feedback1')"
+          >
+            A. (3,0)
+          </button>
+          <button
+            class="option"
+            onclick="checkAnswer(this, '(4,0)', 'feedback1')"
+          >
+            B. (4,0)
+          </button>
+          <button
+            class="option"
+            onclick="checkAnswer(this, '(3,4)', 'feedback1')"
+          >
+            C. (3,4)
+          </button>
+          <button
+            class="option"
+            onclick="checkAnswer(this, '(0,4)', 'feedback1')"
+          >
+            D. (0,4)
+          </button>
+
+          <div id="feedback1" class="feedback"></div>
+        </div>
+
+        <!-- Pregunta 2 - Intermedio -->
+        <div class="exercise">
+          <h2>
+            📌 Pregunta 2: Si A = (7,1) y B = (2,2), ¿cuál es el producto punto
+            A · B?
+          </h2>
+
+          <button class="option" onclick="checkAnswer(this, '16', 'feedback2')">
+            A. 16
+          </button>
+          <button class="option" onclick="checkAnswer(this, '14', 'feedback2')">
+            B. 14
+          </button>
+          <button class="option" onclick="checkAnswer(this, '18', 'feedback2')">
+            C. 18
+          </button>
+          <button class="option" onclick="checkAnswer(this, '12', 'feedback2')">
+            D. 12
+          </button>
+
+          <div id="feedback2" class="feedback"></div>
+        </div>
+
+        <!-- Pregunta 3 - Difícil -->
+        <div class="exercise">
+          <h2>
+            📌 Pregunta 3: Si A = (8,6) y B = (3,4), ¿cuál es la proyección de A
+            sobre B?
+          </h2>
+
+          <button
+            class="option"
+            onclick="checkAnswer(this, '(4.8,6.4)', 'feedback3')"
+          >
+            A. (4.8,6.4)
+          </button>
+          <button
+            class="option"
+            onclick="checkAnswer(this, '(3.6,4.8)', 'feedback3')"
+          >
+            B. (3.6,4.8)
+          </button>
+          <button
+            class="option"
+            onclick="checkAnswer(this, '(5.4,7.2)', 'feedback3')"
+          >
+            C. (5.4,7.2)
+          </button>
+          <button
+            class="option"
+            onclick="checkAnswer(this, '(4.2,5.6)', 'feedback3')"
+          >
+            D. (4.2,5.6)
+          </button>
+
+          <div id="feedback3" class="feedback"></div>
+        </div>
+      </div>
+
+      <div class="mascota-container">
+        <img
+          id="godotSprite"
+          class="mascota-img"
+          src="Archivos/Godot_serio.png"
+          alt="Godot la mascota"
+        />
+      </div>
+
+      <div class="competition-section">
+        <h2>¡Felicidades, Competidor!</h2>
+
+        <div class="competition-message">
+          <p>
+            Si llegaste hasta aquí, demuestras que dominas los conceptos clave
+            de proyección vectorial.
+          </p>
+          <p>
+            Mis creadores han preparado una competencia especial donde podrás
+            demostrar todo lo que has aprendido.
+          </p>
+          <p>¿Estás listo para el desafío final?</p>
+        </div>
+
+        <button
+          class="cta-button"
+          onclick="window.location.href='https://forms.gle/tuformularioaquí'"
+        >
+          ¡Únete a la Competencia!
+        </button>
+
+        <div class="badges-container">
+          <img src="Archivos/Dor.png" alt="Logro 1" class="badge" />
+          <img src="Archivos/Godot orgulloso.png" alt="Logro 2" class="badge" />
+          <img src="Archivos/GodotF.png" alt="Logro 3" class="badge" />
+        </div>
+      </div>
+
+      <footer>
+        <button
+          class="footer-btn"
+          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        >
+          Volver al Inicio
+        </button>
+        <p>
+          © 2024 Competencia de Vectores | Creado con ❤️ por tus instructores
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // Respuestas correctas
+      const correctAnswers = {
+        question1: "(3,0)",
+        question2: "16",
+        question3: "(4.8,6.4)",
+      };
+
+      function checkAnswer(button, selectedAnswer, feedbackId) {
+        const questionNumber = feedbackId.replace("feedback", "");
+        const correctAnswer = correctAnswers[`question${questionNumber}`];
+        const feedbackElement = document.getElementById(feedbackId);
+
+        // Reset all buttons for this question
+        const buttons = button.parentElement.querySelectorAll(".option");
+        buttons.forEach((btn) => {
+          btn.classList.remove("correct", "incorrect");
+        });
+
+        if (selectedAnswer === correctAnswer) {
+          button.classList.add("correct");
+          feedbackElement.textContent = "✅ ¡Correcto! Buen trabajo.";
+          feedbackElement.className = "feedback correct-feedback";
+          feedbackElement.style.display = "block";
+        } else {
+          button.classList.add("incorrect");
+          feedbackElement.textContent = `❌ Incorrecto. La respuesta correcta es ${correctAnswer}.`;
+          feedbackElement.className = "feedback incorrect-feedback";
+          feedbackElement.style.display = "block";
+
+          // Highlight the correct answer
+          buttons.forEach((btn) => {
+            if (btn.textContent.trim().startsWith(correctAnswer[0])) {
+              btn.classList.add("correct");
+            }
+          });
+        }
+      }
+
+      // Animación para la mascota
+      const mascota = document.getElementById("godotSprite");
+      mascota.addEventListener("mouseenter", function () {
+        this.style.transform = "scale(1.1)";
+      });
+      mascota.addEventListener("mouseleave", function () {
+        this.style.transform = "scale(1)";
+      });
+    </script>
+  </body>
+</html>

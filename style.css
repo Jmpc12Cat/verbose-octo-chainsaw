@@ -1,0 +1,132 @@
+/* Fondo completamente naranja */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(90deg, #ff9800, #ff5722); /* Tonos de naranja */
+  color: white; /* Texto en blanco para buen contraste */
+}
+
+/* Estilos del encabezado */
+header {
+  background-color: rgba(255, 136, 0, 0.9);
+  padding: 20px;
+  border-bottom: 4px solid #ff6f00;
+}
+
+h1 {
+  color: #fff; /* Manteniendo blanco para legibilidad */
+}
+
+/* Contenedor de imágenes */
+#imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Ajustes para la imagen de Godot */
+#godotSprite {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(255, 87, 34, 0.5); /* Tonos naranjas en sombra */
+  transition: transform 0.5s ease-in-out;
+}
+
+#godotSprite:hover {
+  transform: scale(1.1);
+}
+
+/* Botón con estilo naranja */
+button {
+  padding: 12px 18px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #ff6f00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #ff8f00;
+}
+
+/* Estilos para el pie de página */
+footer {
+  background-color: rgba(255, 136, 0, 0.9);
+  padding: 15px;
+  border-top: 3px solid #ff6f00;
+}
+
+/* Configuración del canvas */
+canvas {
+  border: 2px solid #ff6f00;
+  margin-top: 20px;
+}
+#ejerciciosBtn {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(90deg, #ff9800, #ff5722);
+  border: 2px solid #ff6f00;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(255, 87, 34, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+#ejerciciosBtn:hover {
+  background: linear-gradient(90deg, #ff5722, #ff9800);
+  transform: scale(1.1);
+}
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(90deg, #ffa500, #ff4500);
+  color: white;
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-bottom: 4px solid #ff701d;
+}
+
+h1 {
+  color: #ff4500;
+}
+
+#imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#godotSprite {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease-in-out;
+}
+
+button {
+  padding: 12px 18px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #ff701d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #ff914d;
+  transform: scale(1.1);
+}

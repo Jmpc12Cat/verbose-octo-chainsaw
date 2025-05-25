@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explicación - Proyección de Vectores</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        🦊 Estoy diseñado para ayudarte a aprender, pero por favor ponle
+        atención a la presentación.
+      </h1>
+      <p>
+        Te servirá mucho para analizar el ejemplo que exploraremos en detalle
+        cuando mis creadores lo indiquen.
+      </p>
+    </header>
+
+    <main>
+      <section class="concept">
+        <h2>📌 Ejemplo Sencillo: Lanzar una Pelota en Diagonal</h2>
+        <p>Imagina que estás jugando béisbol en un campo con viento:</p>
+        <ul>
+          <li>
+            <strong>Tu lanzamiento (vector A):</strong> 5 metros hacia adelante
+            (eje Y) + 5 metros hacia la derecha (eje X) →
+            <strong>Vector A = (5,5)</strong>.
+          </li>
+          <li>
+            <strong>Dirección del viento (vector B):</strong> Sopla exactamente
+            hacia la derecha → <strong>Vector B = (10,0)</strong>.
+          </li>
+        </ul>
+        <p>
+          💡 <strong>Problema:</strong> ¿Qué parte de tu lanzamiento es afectada
+          por el viento?
+        </p>
+      </section>
+
+      <section class="calculo">
+        <h2>📌 Solución Matemática</h2>
+        <p>Dibuja los vectores:</p>
+        <ul>
+          <li><strong>Tu lanzamiento:</strong> ↗ (5,5)</li>
+          <li><strong>Dirección viento:</strong> → (10,0)</li>
+        </ul>
+        <h3>💡 Cálculo de la proyección:</h3>
+        <p>
+          ✔ <strong>Producto punto:</strong> (5×10) + (5×0) =
+          <strong>50</strong>
+        </p>
+        <p>✔ <strong>Norma de B:</strong> 10² + 0² = <strong>100</strong></p>
+        <p>
+          ✔ <strong>Proyección:</strong> (50/100) × (10,0) =
+          <strong>(5,0)</strong>
+        </p>
+      </section>
+
+      <section class="interpretacion">
+        <h2>📌 Interpretación</h2>
+        <p>
+          💡 <strong>Conclusión:</strong> Solo
+          <strong>5 metros horizontales</strong> de tu lanzamiento son empujados
+          por el viento.
+        </p>
+        <p>Los otros <strong>5 metros verticales</strong> no son afectados.</p>
+
+        <!-- Imagen ubicada justo debajo del texto de "no afectados" -->
+        <div id="imageContainer">
+          <img
+            id="godotSprite"
+            src="Archivos/Ilustraccion.png"
+            alt="Ilustración de la proyección de vectores"
+          />
+        </div>
+      </section>
+      <div id="imageContainer">
+        <img
+          id="godotSprite"
+          src="Archivos/Zorro en curioso.png"
+          alt="Ilustración de la proyección de vectores"
+        />
+      </div>
+    </section>
+      <section class="importancia">
+        <h2>📌 ¿Por qué importa?</h2>
+        <ul>
+          <li>
+            ✔
+            <strong
+              >Explica por qué los home runs se desvían con el viento
+              lateral.</strong
+            >
+          </li>
+          <li>
+            ✔
+            <strong>Ayuda a calcular la trayectoria real de la pelota.</strong>
+          </li>
+        </ul>
+      </section>
+      <li><a href="Ejercicios.html">Pasemos a ejercicios practicos</a></li>
+    </main>
+    <footer>
+      <p>&copy; 2025 Aplicación Educativa con Godot.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
